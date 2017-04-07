@@ -11,4 +11,8 @@ describe('Record Store', function () {
   it('has an inventory', function () {
     a.deepEqual(new RecordStore('Name', 'City').inventory, [])
   })
+
+  it('has a balance starting at zero', function () {
+    a.strictEqual(discsRUs.balance, 0)
+  })
 })
