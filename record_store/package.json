@@ -1,0 +1,21 @@
+{
+  "name": "record_store",
+  "version": "0.0.1",
+  "description": "JavaScript Record Store Homework",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha specs"
+  },
+  "repository": {
+    "type": "git",
+    "url": ".."
+  },
+  "keywords": [
+    "codeclan"
+  ],
+  "author": "Douglas Crooke",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  }
+}
