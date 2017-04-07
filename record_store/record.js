@@ -8,9 +8,9 @@ var Record = function (artist, title, genre, price) {
 Record.prototype = {
   toString: function () {
     var result = ''
-    for (var attr of Object.keys(this)) {
+    Object.keys(this).forEach(function (attr) {
       result = result + attr + '=' + this[attr] + '\n'
-    }
+    }.bind(this))
     return result
   }
 }
