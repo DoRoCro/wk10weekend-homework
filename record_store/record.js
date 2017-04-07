@@ -5,4 +5,13 @@ var Record = function (artist, title, genre, price) {
   this.price = price
 }
 
+Record.prototype = {
+  toString: function () {
+    var result = ''
+    for (var attr of Object.keys(this)) {
+      result = result + attr + '=' + this[attr] + '\n'
+    }
+    return result
+  }
+}
 module.exports = Record

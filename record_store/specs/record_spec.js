@@ -16,4 +16,7 @@ describe('Record', function () {
   it('has price', function () {
     a.strictEqual(new Record('Artist', 'Title', 'Genre', 9.99).price, 9.99)
   })
+  it('can print out as string', function () {
+    a.strictEqual(disc1.toString(), 'artist=Half Man, Half Biscuit\ntitle=Westward Ho! Massive Letdown\ngenre=post-punk\nprice=9.99\n')
+  })
 })
