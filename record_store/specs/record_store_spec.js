@@ -37,4 +37,12 @@ describe('Record Store', function () {
     discsRUs.add(disc2)
     a.strictEqual(discsRUs.listInventory(), 'artist=Half Man, Half Biscuit\ntitle=Westward Ho! Massive Letdown\ngenre=post-punk\nprice=1.99\n\nartist=Half Man, Half Biscuit\ntitle=The Trumpton Riots\ngenre=post-punk\nprice=12.99\n\n')
   })
+  it('can sell a record', function () {
+    discsRUs.add(disc1)
+    discsRUs.add(disc2)
+    discsRUs.balance = 100
+    discsRUs.sell(disc1)
+    a.strictEqual(discsRUs.inventory.length, 1)
+    a.strictEqual(discsRUs.balance, 101.99)
+  })
 })
