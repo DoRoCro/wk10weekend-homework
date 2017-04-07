@@ -1,9 +1,14 @@
 var RecordStore = require('../record_store.js')
 var a = require('assert')
 
+var discsRUs = new RecordStore('Seedy CDs', 'Aberdeen')
+
 describe('Record Store', function () {
   it('has name and city', function () {
     a.strictEqual(new RecordStore('Name', 'City').name, 'Name')
-    a.strictEqual(new RecordStore('Name', 'City').city, 'City')
+    a.strictEqual(discsRUs.city, 'Aberdeen')
+  })
+  it('has an inventory', function () {
+    a.deepEqual(new RecordStore('Name', 'City').inventory, [])
   })
 })
