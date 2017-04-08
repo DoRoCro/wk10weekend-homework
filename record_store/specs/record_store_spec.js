@@ -45,4 +45,12 @@ describe('Record Store', function () {
     a.strictEqual(discsRUs.inventory.length, 1)
     a.strictEqual(discsRUs.balance, 101.99)
   })
+
+  it('can report financial status', function () {
+    discsRUs.add(disc1)
+    discsRUs.add(disc2)
+    discsRUs.balance = 100
+    discsRUs.sell(disc1)
+    a.strictEqual(discsRUs.financialStatus(), 'Balance = 101.99\nSelling Price of inventory = 12.99')
+  })
 })

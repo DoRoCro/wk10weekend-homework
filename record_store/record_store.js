@@ -6,14 +6,17 @@ var RecordStore = function (name, city) {
 }
 
 RecordStore.prototype = {
+
   add: function (record) {
     this.inventory.push(record)
   },
+
   listInventory: function () {
     return this.inventory.reduce(function (a, b) {
       return a + b.toString() + '\n'
     }, '')
   },
+
   sell: function (record) {
     // find record in inventory, return if not found
     var whereItIs = this.inventory.indexOf(record)
@@ -22,7 +25,16 @@ RecordStore.prototype = {
     var sold = this.inventory.splice(whereItIs, 1)
     // update balance
     this.balance += sold[0].price
+  },
+
+  financialStatus: function () {
+    var balanceString = 'Balance = ' + this.balance
+    var inventoryValue = this.inventory.reduce(function (a, b) {
+      return a + b.price
+    }, 0)
+    return balanceString + '\nSelling Price of inventory = ' + inventoryValue
   }
+
 }
 
 module.exports = RecordStore
