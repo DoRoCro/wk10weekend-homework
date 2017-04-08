@@ -70,8 +70,8 @@ Customer.prototype = {
     )
   },
   betterCollection: function (opponent) {
-    var opponentValue = this.collectionValue.bind(opponent)
-    return (opponentValue < this.collectionValue)
+    var opponentValue = opponent.collectionValue()
+    return (opponentValue < this.collectionValue())
   }
 }
 

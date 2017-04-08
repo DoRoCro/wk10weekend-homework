@@ -84,5 +84,7 @@ describe('Customer', function () {
     var customer2 = new Customer('Collector 2', 50)
     customer2.collection = [disc1, disc2]
     a.strictEqual(customer1.betterCollection(customer2), true)
+    // compare to self, should return false as is not better than
+    a.strictEqual(customer1.betterCollection(customer1), false)
   })
 })
