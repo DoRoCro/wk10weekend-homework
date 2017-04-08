@@ -53,4 +53,11 @@ describe('Record Store', function () {
     discsRUs.sell(disc1)
     a.strictEqual(discsRUs.financialStatus(), 'Balance = 101.99\nSelling Price of inventory = 12.99')
   })
+
+  it('can select records by genre', function () {
+    discsRUs.add(disc1)
+    discsRUs.add(new Record('Sleaford Mods', 'TCR', 'punk/hip-hop'))
+    discsRUs.add(disc2)
+    a.deepEqual(discsRUs.selectByGenre('post-punk'), [disc1, disc2])
+  })
 })

@@ -33,8 +33,12 @@ RecordStore.prototype = {
       return a + b.price
     }, 0)
     return balanceString + '\nSelling Price of inventory = ' + inventoryValue
+  },
+  selectByGenre: function (genre) {
+    return this.inventory.filter(function (element) {
+      return element.genre === genre
+    })
   }
-
 }
 
 module.exports = RecordStore
