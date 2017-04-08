@@ -31,4 +31,12 @@ describe('Customer', function () {
     customer1.buyRecord(unaffordableDisc2)
     a.strictEqual(customer1.cash, 98.01)
   })
+
+  it('can sell records', function () {
+    customer1.buyRecord(disc1)
+    customer1.buyRecord(new Record('artist', 'title', 'genre', 1.00))
+    a.deepEqual(customer1.sellRecord(disc1, 2.49), disc1)
+    a.strictEqual(customer1.cash, 99.50)
+    a.strictEqual(customer1.collection.length, 1)
+  })
 })

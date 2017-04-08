@@ -17,6 +17,23 @@ Customer.prototype = {
   },
   canBuyRecord: function (record) {
     return (this.cash >= record.price)
+  },
+  sellRecord: function (record, soldFor) {
+    if (this.canSellRecord(record)) {
+      this.cash += soldFor
+      return this.collection.splice(this.findIndexInCollection(record), 1)[0]
+    }
+  },
+  canSellRecord: function (record) {
+    // can only sell records in collection
+    // console.log(this.collection)
+    // console.log(this.collection[(this.findIndexInCollection(record))])
+    return !(this.findIndexInCollection(record) === -1)
+  },
+  findIndexInCollection: function (record) {
+    return this.collection.findIndex(function (element) {
+      return element === record
+    })
   }
 }
 
