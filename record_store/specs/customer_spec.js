@@ -75,4 +75,14 @@ describe('Customer', function () {
     customer1.sortCollection(1)
     a.deepEqual(customer1.collection, [disc1, disc2, disc3])
   })
+
+  it('can compare to other customer\'s collection  value', () => {
+    var disc1 = new Record('artist1', 'title', 'genre1', 1.00)
+    var disc2 = new Record('artist1', 'title2', 'genre1', 2.00)
+    var disc3 = new Record('artist2', 'title', 'genre2', 3.00)
+    customer1.collection = [disc1, disc2, disc3]
+    var customer2 = new Customer('Collector 2', 50)
+    customer2.collection = [disc1, disc2]
+    a.strictEqual(customer1.betterCollection(customer2), true)
+  })
 })
