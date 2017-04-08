@@ -64,4 +64,15 @@ describe('Customer', function () {
   it('find most valuable record in empty collection as empty record value -1', function () {
     a.deepEqual(customer1.findMostValuableRecord(), new Record('', '', '', -1))
   })
+
+  it('can sort collection by value ascending / descending (in place)', function () {
+    var disc1 = new Record('artist1', 'title', 'genre1', 1.00)
+    var disc2 = new Record('artist1', 'title2', 'genre1', 2.00)
+    var disc3 = new Record('artist2', 'title', 'genre2', 3.00)
+    customer1.collection = [disc1, disc2, disc3]
+    customer1.sortCollection(-1)
+    a.deepEqual(customer1.collection, [disc3, disc2, disc1])
+    customer1.sortCollection(1)
+    a.deepEqual(customer1.collection, [disc1, disc2, disc3])
+  })
 })

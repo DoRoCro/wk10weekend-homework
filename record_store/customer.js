@@ -57,6 +57,17 @@ Customer.prototype = {
       if (previous.price > current.price) return previous
       return current
     }, new Record('', '', '', -1))
+  },
+
+  sortCollection: function (direction) {
+    // direction == +1, ascending, -1 descending
+    return this.collection.sort(
+      function (a, b) {
+        if (a.price > b.price) return (1 * direction)
+        if (a.price < b.price) return (-1 * direction)
+        return 0
+      }
+    )
   }
 }
 
