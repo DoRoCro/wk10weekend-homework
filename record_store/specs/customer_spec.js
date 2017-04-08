@@ -11,4 +11,8 @@ describe('Customer', function () {
   it('has cash', function () {
     a.strictEqual(customer1.cash, 100)
   })
+
+  it('has a collection', function () {
+    a.deepEqual(customer1.collection, [])
+  })
 })
