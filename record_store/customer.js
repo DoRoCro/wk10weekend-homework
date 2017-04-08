@@ -28,27 +28,27 @@ Customer.prototype = {
     // can only sell records in collection
     return !(this.findIndexInCollection(record) === -1)
   },
+
   findIndexInCollection: function (record) {
     // named function for findIndex
     return this.collection.findIndex(function (element) {
       return element === record
     })
   },
+
   collectionValue: function (genre) {
-    if (!genre) {
-      return this.collection.reduce(function (total, record) {
-        return total + record.price
-      }, 0)
-    } else {
-      return this.filteredRecords(genre).reduce(function (total, record) {
-        return total + record.price
-      }, 0)
-    }
+    return this.filteredRecords(genre).reduce(function (total, record) {
+      return total + record.price
+    }, 0)
   },
+
   filteredRecords: function (genre) {
-    return this.collection.filter(function (record) {
-      return record.genre === genre
-    })
+    if (genre) {
+      return this.collection.filter(function (record) {
+        return record.genre === genre
+      })
+    }
+    return this.collection
   }
 }
 
