@@ -7,4 +7,8 @@ describe('Customer', function () {
   it('has name', function () {
     a.strictEqual(customer1.name, 'The Record Collector')
   })
+
+  it('has cash', function () {
+    a.strictEqual(customer1.cash, 100)
+  })
 })
