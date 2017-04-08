@@ -1,3 +1,4 @@
+var Record = require('./record.js')
 var Customer = function (name, starterCash) {
   this.name = name
   this.cash = starterCash
@@ -49,6 +50,13 @@ Customer.prototype = {
       })
     }
     return this.collection
+  },
+
+  findMostValuableRecord: function () {
+    return this.collection.reduce((previous, current) => {  // look, an 'Arrow Function'
+      if (previous.price > current.price) return previous
+      return current
+    }, new Record('', '', '', -1))
   }
 }
 

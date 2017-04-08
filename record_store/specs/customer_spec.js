@@ -53,4 +53,15 @@ describe('Customer', function () {
     customer1.buyRecord(new Record('artist2', 'title', 'genre2', 3.00))
     a.strictEqual(customer1.collectionValue('genre1'), 3)
   })
+
+  it('can find most valuable record', function () {
+    customer1.buyRecord(new Record('artist1', 'title', 'genre1', 1.00))
+    customer1.buyRecord(new Record('artist1', 'title2', 'genre1', 2.00))
+    customer1.buyRecord(new Record('artist2', 'title', 'genre2', 3.00))
+    a.deepEqual(customer1.findMostValuableRecord(), new Record('artist2', 'title', 'genre2', 3.00))
+  })
+
+  it('find most valuable record in empty collection as empty record value -1', function () {
+    a.deepEqual(customer1.findMostValuableRecord(), new Record('', '', '', -1))
+  })
 })
