@@ -26,14 +26,18 @@ Customer.prototype = {
   },
   canSellRecord: function (record) {
     // can only sell records in collection
-    // console.log(this.collection)
-    // console.log(this.collection[(this.findIndexInCollection(record))])
     return !(this.findIndexInCollection(record) === -1)
   },
   findIndexInCollection: function (record) {
+    // named function for findIndex
     return this.collection.findIndex(function (element) {
       return element === record
     })
+  },
+  collectionValue: function () {
+    return this.collection.reduce(function (total, record) {
+      return total + record.price
+    }, 0)
   }
 }
 

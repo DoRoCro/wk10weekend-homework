@@ -39,4 +39,11 @@ describe('Customer', function () {
     a.strictEqual(customer1.cash, 99.50)
     a.strictEqual(customer1.collection.length, 1)
   })
+
+  it('can return value of collection', function () {
+    customer1.buyRecord(new Record('artist1', 'title', 'genre1', 1.00))
+    customer1.buyRecord(new Record('artist1', 'title2', 'genre1', 2.00))
+    customer1.buyRecord(new Record('artist2', 'title', 'genre2', 3.00))
+    a.strictEqual(customer1.collectionValue(), 6)
+  })
 })
