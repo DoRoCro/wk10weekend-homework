@@ -34,10 +34,21 @@ Customer.prototype = {
       return element === record
     })
   },
-  collectionValue: function () {
-    return this.collection.reduce(function (total, record) {
-      return total + record.price
-    }, 0)
+  collectionValue: function (genre) {
+    if (!genre) {
+      return this.collection.reduce(function (total, record) {
+        return total + record.price
+      }, 0)
+    } else {
+      return this.filteredRecords(genre).reduce(function (total, record) {
+        return total + record.price
+      }, 0)
+    }
+  },
+  filteredRecords: function (genre) {
+    return this.collection.filter(function (record) {
+      return record.genre === genre
+    })
   }
 }
 
